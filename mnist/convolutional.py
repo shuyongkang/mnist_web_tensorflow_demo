@@ -5,7 +5,8 @@ from tensorflow.examples.tutorials.mnist import input_data
 
 '''训练卷积神经网络'''
 
-data = input_data.read_data_sets("/mnist/MNIST_data", one_hot=True)
+data = input_data.read_data_sets("./MNIST_data/", one_hot=True)
+
 # model
 with tf.variable_scope("convolutional"):
     x = tf.placeholder(tf.float32, [None, 784])
@@ -34,7 +35,7 @@ accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 saver = tf.train.Saver(variables)
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
-    for i in range(50000):
+    for i in range(500):
         batch = data.train.next_batch(50)
         if i % 100 == 0:
             train_accuracy = accuracy.eval(feed_dict={x: batch[0], y_: batch[1], keep_prob: 1.0})

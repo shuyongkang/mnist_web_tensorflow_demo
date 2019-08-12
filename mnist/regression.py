@@ -5,7 +5,7 @@ from tensorflow.examples.tutorials.mnist import input_data
 
 ''' 训练线性回归模型'''
 
-data = input_data.read_data_sets("/mnist/MNIST_data", one_hot=True)
+data = input_data.read_data_sets("./MNIST_data/", one_hot=True)
 
 # model 共享变量
 with tf.variable_scope("regression"):
